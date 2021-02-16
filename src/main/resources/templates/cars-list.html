@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars list</title>
+
+    <style>
+        table {
+            width: 40%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid #98bf21;
+            padding: 4px 8px 4px 8px;
+        }
+        th {
+            text-align: left;
+            padding: 5px;
+            background-color: #A7C942;
+            color: #fff;
+        }
+        .alt td { background-color: #EAF2D3; }
+    </style>
+</head>
+<body background="/img/sity.jpg" >
+
+    <div th:switch="${cars}" >
+    <h2 th:case="null">No cars found!</h2>
+    <div th:case="*">
+        <h2>Cars</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Modefication</th>
+                <th>Color</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car : ${cars}" >
+                <td th:text="${car.id}" ></td>
+                <td th:text="${car.model}" ></td>
+                <td th:text="${car.modefication}"></td>
+                <td th:text="${car.color}"></td>
+                <td><a th:href="@{car-update/{id}(id=${car.id})}">Update</a></td>
+                <td><a th:href="@{car-delete/{id}(id=${car.id})}">Delete</a></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/car-create">Create car</a></p>
+
+
+</div>
+</body>
+</html>

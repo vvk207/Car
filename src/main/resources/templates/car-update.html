@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Car update</title>
+</head>
+<body>
+<form action="#" th:action="@{/car-update}" th:object="${car}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="model">Model</label>
+    <input type="text" th:field="*{model}" id="model" placeholder="Model">
+    <br/>
+    <label for="modefication">Modefication</label>
+    <input type="text" th:field="*{modefication}" id="modefication" placeholder="Modefication">
+    <br/>
+    <label for="color">Color</label>
+    <input type="text" th:field="*{color}" id="color" placeholder="Color">
+    <br/>
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>
